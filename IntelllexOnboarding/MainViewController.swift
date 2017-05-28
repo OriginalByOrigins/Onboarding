@@ -19,15 +19,33 @@ class MainViewController: UIViewController {
     button.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
     return button
   }()
+  
+  let clock: UILabel = {
+    let label = UILabel()
+    label.text = "23:18:24"
+    label.textColor = .white
+    label.textAlignment = .center
+    label.font = UIFont.init(name: "HelveticaNeue", size: 80)
+    return label
+  }()
+  
+  var timer = Timer()
 
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
 
       // Do any additional setup after loading the view.
     self.view.backgroundColor = intelllexYellow
+    self.view.addSubview(clock)
     self.view.addSubview(logoutButton)
-    _ = logoutButton.constraintCenterTo(centerX: self.view.centerXAnchor, xConstant: 0, centerY: self.view.centerYAnchor, yConstant: 150)
+    
+    _ = clock.constraintAnchorTo(top: nil, topConstant: nil, bottom: self.view.centerYAnchor, bottomConstant: -100, left: self.view.leftAnchor, leftConstant: 0, right: self.view.rightAnchor, rightConstant: 0)
+    _ = clock.constraintSizeToConstant(widthConstant: nil, heightConstant: 100)
+    _ = logoutButton.constraintCenterTo(centerX: self.view.centerXAnchor, xConstant: 0, centerY: nil, yConstant: nil)
+    _ = logoutButton.constraintAnchorTo(top: nil, topConstant: nil, bottom: self.view.bottomAnchor, bottomConstant: -150, left: nil, leftConstant: nil, right: nil, rightConstant: nil)
     _ = logoutButton.constraintSizeToConstant(widthConstant: 250, heightConstant: 50)
+    
+    scheduledUpdateClock()
   }
   
   func handleLogout() {
@@ -38,5 +56,28 @@ class MainViewController: UIViewController {
     self.dismiss(animated: true) { 
       rootViewController.present(OnboardingViewController(), animated: false, completion: nil)
     }
+  }
+}
+
+extension MainViewController {
+  func scheduledUpdateClock() {
+    timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+      let date = Date()
+      let calendar = Calendar.current
+      
+      let hour = calendar.component(.hour, from: date)
+      let minutes = calendar.component(.minute, from: date)
+      let seconds = calendar.component(.second, from: date)
+      
+      let twoDigitsHour = self.getTwoDigits(hour)
+      let twoDigitsMinutes = self.getTwoDigits(minutes)
+      let twoDigitsSeconds = self.getTwoDigits(seconds)
+      
+      self.clock.text = "\(twoDigitsHour):\(twoDigitsMinutes):\(twoDigitsSeconds)"
+    }
+  }
+  
+  func getTwoDigits(_ number: Int) -> String {
+    return number > 9 ? String(number) : "0" + String(number)
   }
 }

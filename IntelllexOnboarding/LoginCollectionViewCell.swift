@@ -37,8 +37,8 @@ class LoginCollectionViewCell: UICollectionViewCell {
   
   lazy var loginButton: UIButton = {
     let button = UIButton(type: .system)
-    button.setTitle("Login", for: .normal)
-    button.setTitleColor(.white, for: .normal)
+    let attributedTitle = NSAttributedString(string: "Login", attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightBold), NSForegroundColorAttributeName: UIColor.white])
+    button.setAttributedTitle(attributedTitle, for: .normal)
     button.backgroundColor = intelllexYellow
     button.layer.cornerRadius = 5
     button.addTarget(self, action: #selector(handleLogIn), for: .touchUpInside)
