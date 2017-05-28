@@ -8,6 +8,8 @@
 
 import UIKit
 
+let intelllexYellow = UIColor(red: 240/256, green: 197/256, blue: 48/256, alpha: 1)
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.makeKeyAndVisible()
+    window?.rootViewController = DummyRootViewController()
     return true
   }
 
