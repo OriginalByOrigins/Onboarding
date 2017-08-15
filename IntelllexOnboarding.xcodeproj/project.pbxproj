@@ -176,7 +176,7 @@
 				TargetAttributes = {
 					30DA29AC1ED9B6D5002EE677 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 2MRG3U4CR7;
+						DevelopmentTeam = 78DY2XFN75;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -343,7 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2MRG3U4CR7;
+				DEVELOPMENT_TEAM = 78DY2XFN75;
 				INFOPLIST_FILE = IntelllexOnboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AppsInnovation.IntelllexOnboarding;
@@ -356,7 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2MRG3U4CR7;
+				DEVELOPMENT_TEAM = 78DY2XFN75;
 				INFOPLIST_FILE = IntelllexOnboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = AppsInnovation.IntelllexOnboarding;
