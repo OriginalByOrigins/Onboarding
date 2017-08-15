@@ -8,10 +8,10 @@ An onboarding demo I made for the startup I worked for as an Internship.
 
 * ### Onboarding Screen
 
-<img src="./Demo/register.gif" width="400">
+<img src="./Demo/onboarding_view.gif" width="400">
 
 
 
 * ### Login and Logout
 
-<img src="./Demo/set_avatar.gif" width="400">
+<img src="./Demo/login_logout.gif" width="400">
