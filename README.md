@@ -1,6 +1,6 @@
 # Onboarding
 
-An onboarding demo I made for the startup I worked for as an Internship.
+An onboarding demo I made for the startup I worked for as an Internship.<br />
 **I made this for fun.** I worked as a React FrontEnd developer at the startup.
 
 ## Demo
