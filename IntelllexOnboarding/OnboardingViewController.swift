@@ -217,7 +217,9 @@ extension OnboardingViewController: UserLoggedInDelegate {
     UserDefaults.standard.setIsLoggedIn(value: true)
     
     self.dismiss(animated: false) {
-      rootViewController.present(MainViewController(), animated: true, completion: nil)
+      let mainViewController = MainViewController()
+      mainViewController.modalTransitionStyle = .crossDissolve
+      rootViewController.present(mainViewController, animated: true, completion: nil)
     }
   }
 }

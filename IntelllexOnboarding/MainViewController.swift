@@ -20,10 +20,10 @@ class MainViewController: UIViewController {
     return button
   }()
   
-  let clock: UILabel = {
+  lazy var clock: UILabel = {
     let label = UILabel()
-    label.text = "23:18:24"
     label.textColor = .white
+    label.text = self.currentTime()
     label.textAlignment = .center
     label.font = UIFont.init(name: "HelveticaNeue", size: 80)
     return label
@@ -60,20 +60,24 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController {
+  func currentTime() -> String {
+    let date = Date()
+    let calendar = Calendar.current
+    
+    let hour = calendar.component(.hour, from: date)
+    let minutes = calendar.component(.minute, from: date)
+    let seconds = calendar.component(.second, from: date)
+    
+    let twoDigitsHour = self.getTwoDigits(hour)
+    let twoDigitsMinutes = self.getTwoDigits(minutes)
+    let twoDigitsSeconds = self.getTwoDigits(seconds)
+    
+    return "\(twoDigitsHour):\(twoDigitsMinutes):\(twoDigitsSeconds)"
+  }
+  
   func scheduledUpdateClock() {
     timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-      let date = Date()
-      let calendar = Calendar.current
-      
-      let hour = calendar.component(.hour, from: date)
-      let minutes = calendar.component(.minute, from: date)
-      let seconds = calendar.component(.second, from: date)
-      
-      let twoDigitsHour = self.getTwoDigits(hour)
-      let twoDigitsMinutes = self.getTwoDigits(minutes)
-      let twoDigitsSeconds = self.getTwoDigits(seconds)
-      
-      self.clock.text = "\(twoDigitsHour):\(twoDigitsMinutes):\(twoDigitsSeconds)"
+      self.clock.text = self.currentTime()
     }
   }
   
